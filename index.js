@@ -1,13 +1,18 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
+import bodyParser from 'body-parser'; // import body-parser
 import mongo from "mongoose";
 import dotenv from "dotenv";
 
+//Allow process.env usage
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || "3000";
-let initCounter = 1;
 
+app.use(bodyParser.json());
+
+let initCounter = 1;
 const initServer = () => {  
   mongo.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
