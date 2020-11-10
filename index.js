@@ -35,5 +35,3 @@ const initServer = () => {
 };
 
 initServer();
-//app.use(‘/graphiql’, graphqlHTTP({ schema: require(‘./schema.js’), graphiql: true}));
-
