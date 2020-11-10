@@ -3,14 +3,16 @@ import graphqlHTTP from "express-graphql";
 import bodyParser from 'body-parser'; // import body-parser
 import mongo from "mongoose";
 import dotenv from "dotenv";
+import api from "./server/api.js";
 
-//Allow process.env usage
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || "3000";
+const port = process.env.PORT || "3000";
 
-app.use(bodyParser.json());
+app
+.use(bodyParser.json())
+.use('/api', api);
 
 let initCounter = 1;
 const initServer = () => {  
@@ -21,7 +23,7 @@ const initServer = () => {
   })
   .then(() => {
     console.log('connected to database');
-    app.listen(PORT, () => console.log('Server running successfully'));
+    app.listen(port, () => console.log(`Server running successfully ${port}`));
   })
   .catch((err) => {
     console.log(`Experience this error: ${err}`);
