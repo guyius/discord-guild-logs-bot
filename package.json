@@ -1,7 +1,7 @@
 {
-  "name": "discord-guild-logs-bot",
+  "name": "discord-guild-logs-bot-server",
   "version": "0.0.1",
-  "description": "Simpale bot for fun raid log summary",
+  "description": "The server for a simple bot for fun raid log summary",
   "main": "index.js",
   "type": "module",
   "author": "Guy Biton",
